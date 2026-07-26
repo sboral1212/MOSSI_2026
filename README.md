@@ -14,7 +14,7 @@ The MOSSI 2026 Workshop focuses on advancing the understanding of mathematical m
 ## Abstract Submission
 
 - **Abstract Length:** Maximum 400 words
-- **Submission Form:** Please submit your abstract using the online form available [here](https://github.com/sboral1212/MOSSI2026_Latex_template.git).
+- **Submission Form:** Please submit your abstract using the online form available [here](https://github.com/sboral1212/MOSSI2026_Latex_template/).
 
 ## Workshop Details
 
