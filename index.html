@@ -2,132 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstract Submission Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOSSI 2026 Workshop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 100%;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-        h1 {
-            color: #333;
-        }
+    header {
+      text-align: center;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    h1 {
+      font-size: 3em;
+      background-image: url(''); /* Replace with a direct image URL */
+      color: rgb(200, 60, 10);
+      background-size: cover;
+      padding: 20px;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+    h2 {
+      font-size: 2.2em;
+      color: #0066FF;
+      margin-top: 0;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+    p {
+      font-size: 1.5em;
+      letter-spacing: 0.08em;
+      margin: 10px 0;
+    }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+    a {
+      color: DodgerBlue;
+      text-decoration: none;
+    }
 
-        .form-group textarea {
-            height: 150px;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    .intro {
+      text-align: center;
+      padding: 20px;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .instructions {
-            margin-top: 20px;
-            padding: 10px;
-            background: #e9ecef;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .instructions h2 {
-            margin-top: 0;
-        }
-
-        .error {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+    ol {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Abstract Submission Form</h1>
-        <form id="submissionForm" action="https://formspree.io/f/xeeypbpa" method="post">
-            <div class="form-group">
-                <label for="title">Title of the Document</label>
-                <input type="text" id="title" name="title" placeholder="Enter the title" required aria-required="true">
-            </div>
-            
-            <div class="form-group">
-                <label for="author">Author(s) Name</label>
-                <input type="text" id="author" name="author" placeholder="Enter the author(s) name" required aria-required="true">
-            </div>
-            
-            <div class="form-group">
-                <label for="affiliation">Author(s) Affiliation</label>
-                <input type="text" id="affiliation" name="affiliation" placeholder="Enter the author(s) affiliation" required aria-required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="presenter-email">Email of the Presenter</label>
-                <input type="email" id="presenter-email" name="email" placeholder="Enter the presenter’s email" required aria-required="true">
-            </div>
-
-            <div class="form-group">
-                <label for="abstract">Abstract (within 400 words)</label>
-                <textarea id="abstract" name="abstract" placeholder="Write your abstract here" required aria-required="true"></textarea>
-                <div id="wordCountError" class="error" style="display: none;">The abstract must not exceed 400 words.</div>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
+  <header>
+        <h3 style="color: hsl(195, 100%, 60%);">International Workshop on</h3>
+        <h1>Mathematics of Sea Ice and Ice Sheets <br> (MOSSI) - 2026</h1>
+    </header>
+  <main>
+    <div class="intro">
+      <h2>About the Workshop</h2>
+      <p><strong>Workshop Date:</strong> 12-13 November 2026 </p>
+      <p><strong>Last Date of Abstract Submission:</strong> 31st October 2026 </p>
+      <p><strong>Abstract length:</strong> Maximum 400 words</p>
+      <p><strong>Format:</strong> Online presentation via ZOOM</p>
+      <p><strong>Presentation Timing:</strong> Twenty minutes followed by five minutes for discussion </p>
     </div>
 
-    <script>
-        document.getElementById('submissionForm').addEventListener('submit', function(event) {
-            var abstract = document.getElementById('abstract').value;
-            var wordCount = abstract.trim().split(/\s+/).length;
-            var errorElement = document.getElementById('wordCountError');
-            
-            if (wordCount > 400) {
-                errorElement.style.display = 'block';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                errorElement.style.display = 'none';
-            }
-        });
-    </script>
+    <!-- New Section for Abstract Submission Form Link -->
+    <div class="intro">
+      <h2>Submit Your Abstract</h2>
+      <p>To submit your abstract, please use the following link:</p>
+      <p><a href="https://sboral1212.github.io/MOSSI2026_Latex_template/" target="_blank" style="color: DodgerBlue;">Abstract Submission Form</a></p>
+      <p>Or, <strong> email for abstract submission:</strong> <a href="mailto:mossiworkshop@gmail.com" style="color: DodgerBlue;">mossiworkshop@gmail.com</a></p>
+    </div>
+
+    <div class="intro">
+      <h2>Workshop Organizers</h2>
+      <ol>
+          <li>Dr. Pawan Negi, Harbin Engineering University, Harbin, China, and Trinity College Dublin, Ireland</li>
+        <li>Dr. Susam Boral, Trinity College Dublin, Ireland</li>
+        <li>Professor Mike Meylan, University of Newcastle, Newcastle, Australia</li>
+      </ol>
+    </div>
+  </main>
 </body>
 
 </html>
