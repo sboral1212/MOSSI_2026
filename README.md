@@ -25,7 +25,7 @@ The MOSSI 2026 Workshop focuses on advancing the understanding of mathematical m
 
 For reference, here are links to previous MOSSI workshops:
 
-- [MOSSI - 2023](https://sboral1212.github.io/MOSSI2024/)
+- [MOSSI - 2024](https://sboral1212.github.io/MOSSI2024/)
 - [MOSSI - 2023](https://sboral1212.github.io/sboral1212_b.github.io/)
 - [MOSSI - 2022](https://austms.org.au/event/mossi2022/)
 - [MOSSI - 2021](https://amsi.org.au/events/event/sea-ice/)
