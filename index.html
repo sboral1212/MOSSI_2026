@@ -2,100 +2,952 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOSSI 2026 Workshop</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 100%;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    header {
-      text-align: center;
-      background-color: #f0f8ff;
-      padding: 20px;
-    }
+    <meta name="description"
+        content="MOSSI 2026: International Workshop on the Mathematics of Sea Ice and Ice Sheets.">
 
-    h1 {
-      font-size: 3em;
-      background-image: url(''); /* Replace with a direct image URL */
-      color: rgb(200, 60, 10);
-      background-size: cover;
-      padding: 20px;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
+    <title>MOSSI 2026 | Mathematics of Sea Ice and Ice Sheets</title>
 
-    h2 {
-      font-size: 2.2em;
-      color: #0066FF;
-      margin-top: 0;
-    }
+    <style>
+        :root {
+            --navy: #022f49;
+            --deep-blue: #075985;
+            --blue: #0284c7;
+            --ice-blue: #38bdf8;
+            --pale-blue: #e9f8ff;
+            --snow: #f6fbfe;
+            --white: #ffffff;
+            --text: #294552;
+            --muted: #617985;
+            --accent: #f97345;
+            --border: #cde7f2;
+            --shadow: 0 12px 32px rgba(2, 47, 73, 0.12);
+        }
 
-    p {
-      font-size: 1.5em;
-      letter-spacing: 0.08em;
-      margin: 10px 0;
-    }
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    a {
-      color: DodgerBlue;
-      text-decoration: none;
-    }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--snow);
+            line-height: 1.6;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        a {
+            color: inherit;
+        }
 
-    .intro {
-      text-align: center;
-      padding: 20px;
-    }
+        /* =====================================================
+           FIRST SECTION: HERO
+        ====================================================== */
 
-    ol {
-      text-align: left;
-      margin: 0 auto;
-      max-width: 600px;
-    }
-  </style>
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 24px 100px;
+            color: var(--white);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(2, 36, 57, 0.99),
+                    rgba(2, 132, 199, 0.92)
+                );
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "∇²η   D∇⁴w   ∂u/∂t   ∫Ω   ΔT";
+            position: absolute;
+            top: 45px;
+            left: 3%;
+            color: rgba(255, 255, 255, 0.07);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.5rem, 7vw, 6rem);
+            font-style: italic;
+            white-space: nowrap;
+            transform: rotate(-5deg);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: -5%;
+            right: -5%;
+            bottom: -85px;
+            height: 150px;
+            background: var(--snow);
+            transform: rotate(-2.5deg);
+        }
+
+        .ice-shape {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            transform: rotate(35deg);
+        }
+
+        .ice-shape.left {
+            left: -125px;
+            bottom: 30px;
+        }
+
+        .ice-shape.right {
+            top: -125px;
+            right: -95px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.09);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.7rem, 6vw, 5rem);
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            text-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+        }
+
+        .mossi-title {
+            display: block;
+            margin-top: 12px;
+            color: #bdeeff;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 0.48em;
+            letter-spacing: 0.07em;
+        }
+
+        .hero-description {
+            max-width: 790px;
+            margin: 21px auto 0;
+            color: #e2f7ff;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .scroll-link {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 11px 23px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .scroll-link:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           GENERAL SECTION STYLES
+        ====================================================== */
+
+        main {
+            width: min(1120px, calc(100% - 30px));
+            margin: -48px auto 42px;
+            position: relative;
+            z-index: 4;
+        }
+
+        section {
+            margin-bottom: 25px;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--blue);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.45rem);
+            line-height: 1.2;
+        }
+
+        .heading-line {
+            width: 66px;
+            height: 3px;
+            margin: 12px auto 0;
+            border-radius: 5px;
+            background: linear-gradient(
+                90deg,
+                var(--ice-blue),
+                var(--accent)
+            );
+        }
+
+        /* =====================================================
+           SECOND SECTION: ABSTRACT + RESEARCH FIELDS
+        ====================================================== */
+
+        .submission-section {
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 47, 73, 0.99),
+                    rgba(2, 132, 199, 0.94)
+                );
+        }
+
+        .submission-section::after {
+            content: "∫   ∇²   ∂   Δ";
+            position: absolute;
+            right: 20px;
+            bottom: -35px;
+            color: rgba(255, 255, 255, 0.06);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 5.5rem;
+            font-style: italic;
+        }
+
+        .submission-section .section-label {
+            color: #bdeeff;
+        }
+
+        .submission-section h2 {
+            color: var(--white);
+        }
+
+        .submission-layout {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .submission-box {
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .submission-box h3,
+        .fields-box h3 {
+            margin: 0 0 12px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.4rem;
+        }
+
+        .submission-box p {
+            margin: 0 0 18px;
+            color: #e3f7ff;
+            font-size: 0.97rem;
+        }
+
+        .submission-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .fact {
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.88rem;
+        }
+
+        .fact strong {
+            display: block;
+            margin-bottom: 2px;
+            color: #ffffff;
+        }
+
+        .submission-button {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 7px;
+            color: var(--white);
+            background: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(249, 115, 69, 0.3);
+            transition: 0.25s ease;
+        }
+
+        .submission-button:hover {
+            background: #e85f34;
+            transform: translateY(-2px);
+        }
+
+        .submission-email {
+            margin-top: 17px;
+            color: #dff6ff;
+            font-size: 0.88rem;
+        }
+
+        .submission-email a {
+            color: #ffd8ca;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .fields-box {
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .fields-intro {
+            margin: 0 0 15px;
+            color: #e3f7ff;
+            font-size: 0.94rem;
+        }
+
+        .research-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .research-field {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 25px;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           THIRD SECTION
+        ====================================================== */
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            margin-bottom: 28px;
+        }
+
+        .detail-card {
+            padding: 18px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: linear-gradient(145deg, #ffffff, #eefaff);
+            text-align: center;
+        }
+
+        .detail-icon {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--blue);
+            font-size: 1.35rem;
+        }
+
+        .detail-card h3 {
+            margin: 0 0 4px;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .detail-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 25px;
+            margin-bottom: 27px;
+        }
+
+        .about-text {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            background: #fbfeff;
+        }
+
+        .about-text h3,
+        .aim-box h3,
+        .organiser-panel h3,
+        .previous-panel h3 {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+        }
+
+        .about-text p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .aim-box {
+            padding: 22px;
+            border-radius: 13px;
+            color: var(--white);
+            background: linear-gradient(
+                145deg,
+                var(--deep-blue),
+                var(--blue)
+            );
+        }
+
+        .aim-box h3 {
+            color: var(--white);
+        }
+
+        .aim-box p {
+            margin: 0;
+            color: #e3f7ff;
+            font-size: 0.95rem;
+        }
+
+        .bottom-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+
+        .organiser-panel,
+        .previous-panel {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            background: #f8fcfe;
+        }
+
+        .organiser-list {
+            display: grid;
+            gap: 9px;
+        }
+
+        .organiser {
+            padding: 9px 12px;
+            border-left: 4px solid var(--ice-blue);
+            border-radius: 5px;
+            background: var(--white);
+            font-size: 0.89rem;
+        }
+
+        .organiser strong {
+            color: var(--navy);
+        }
+
+        .year-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .year-link {
+            padding: 9px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            color: var(--deep-blue);
+            background: var(--white);
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .year-link:hover {
+            color: var(--white);
+            background: var(--blue);
+        }
+
+        .contact {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .contact a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+            padding: 22px 15px;
+            color: #dff6ff;
+            background: var(--navy);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 3px 0;
+            font-size: 0.88rem;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+        ====================================================== */
+
+        @media (max-width: 850px) {
+            .submission-layout,
+            .about-layout,
+            .bottom-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 500px;
+                padding: 60px 18px 95px;
+            }
+
+            main {
+                width: min(100% - 18px, 1120px);
+                margin-top: -38px;
+            }
+
+            section {
+                padding: 25px 17px;
+                border-radius: 13px;
+            }
+
+            .submission-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .submission-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .year-links {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text p {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-        <h3 style="color: hsl(195, 100%, 60%);">International Workshop on</h3>
-        <h1>Mathematics of Sea Ice and Ice Sheets <br> (MOSSI) - 2026</h1>
+
+    <!-- =====================================================
+         FIRST SECTION
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="ice-shape left"></div>
+        <div class="ice-shape right"></div>
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                International Workshop on
+            </span>
+
+            <h1>
+                Mathematics of Sea Ice<br>
+                and Ice Sheets
+
+                <span class="mossi-title">
+                    MOSSI 2026
+                </span>
+            </h1>
+
+            <p class="hero-description">
+                An international forum for mathematical modelling, analysis
+                and computation in sea ice, ice sheets and cryospheric dynamics.
+            </p>
+
+        </div>
+
     </header>
-  <main>
-    <div class="intro">
-      <h2>About the Workshop</h2>
-      <p><strong>Workshop Date:</strong> 12-13 November 2026 </p>
-      <p><strong>Last Date of Abstract Submission:</strong> 31st October 2026 </p>
-      <p><strong>Abstract length:</strong> Maximum 400 words</p>
-      <p><strong>Format:</strong> Online presentation via ZOOM</p>
-      <p><strong>Presentation Timing:</strong> Twenty minutes followed by five minutes for discussion </p>
-    </div>
 
-    <!-- New Section for Abstract Submission Form Link -->
-    <div class="intro">
-      <h2>Submit Your Abstract</h2>
-      <p>To submit your abstract, please use the following link:</p>
-      <p><a href="https://sboral1212.github.io/MOSSI2026_Latex_template/" target="_blank" style="color: DodgerBlue;">Abstract Submission Form</a></p>
-      <p>Or, <strong> email for abstract submission:</strong> <a href="mailto:mossiworkshop@gmail.com" style="color: DodgerBlue;">mossiworkshop@gmail.com</a></p>
-    </div>
+    <main>
 
-    <div class="intro">
-      <h2>Workshop Organizers</h2>
-      <ol>
-          <li>Dr. Pawan Negi, Harbin Engineering University, Harbin, China </li>
-        <li>Dr. Susam Boral, Trinity College Dublin, Ireland</li>
-        <li>Professor Mike Meylan, University of Newcastle, Newcastle, Australia</li>
-      </ol>
-    </div>
-  </main>
+        <!-- =====================================================
+             SECOND SECTION:
+             ABSTRACT SUBMISSION + RESEARCH FIELDS
+        ====================================================== -->
+
+        <section class="submission-section" id="submission">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    Call for Abstracts
+                </span>
+
+                <h2>
+                    Abstract Submission and Research Fields
+                </h2>
+
+                <div class="heading-line"></div>
+
+            </div>
+
+            <div class="submission-layout">
+
+                <div class="submission-box">
+
+                    <h3>Submit Your Abstract</h3>
+
+                    <p>
+                        Researchers are invited to submit abstracts on the
+                        mathematical, physical and computational study of sea
+                        ice, ice sheets and related cryospheric systems.
+                    </p>
+
+                    <div class="submission-facts">
+
+                        <div class="fact">
+                            <strong>Submission deadline</strong>
+                            31 October 2026
+                        </div>
+
+                        <div class="fact">
+                            <strong>Abstract length</strong>
+                            Maximum 400 words
+                        </div>
+
+                    </div>
+
+                    <a class="submission-button"
+                        href="https://sboral1212.github.io/MOSSI2026_Latex_template/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Open Abstract Submission Page
+                    </a>
+
+                    <div class="submission-email">
+                        Alternatively, email your abstract to
+                        <a href="mailto:mossiworkshop@gmail.com">
+                            mossiworkshop@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="fields-box">
+
+                    <h3>Indicative Research Fields</h3>
+
+                    <p class="fields-intro">
+                        Contributions may include, but are not limited to, the
+                        following areas:
+                    </p>
+
+                    <div class="research-fields">
+
+                        <span class="research-field">
+                            Sea-ice mechanics and rheology
+                        </span>
+
+                        <span class="research-field">
+                            Wave–ice interaction
+                        </span>
+
+                        <span class="research-field">
+                            Flexural-gravity waves
+                        </span>
+
+                        <span class="research-field">
+                            Ice-sheet and glacier dynamics
+                        </span>
+
+                        <span class="research-field">
+                            Ice-shelf hydroelasticity
+                        </span>
+
+                        <span class="research-field">
+                            Fracture and fragmentation
+                        </span>
+
+                        <span class="research-field">
+                            Grounding-line dynamics
+                        </span>
+
+                        <span class="research-field">
+                            Mathematical and asymptotic modelling
+                        </span>
+
+                        <span class="research-field">
+                            Numerical and computational methods
+                        </span>
+
+                        <span class="research-field">
+                            Data assimilation and machine learning
+                        </span>
+
+                        <span class="research-field">
+                            Cryosphere–ocean interaction
+                        </span>
+
+                        <span class="research-field">
+                            Climate-related cryospheric change
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+             THIRD SECTION
+        ====================================================== -->
+
+        <section id="workshop">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    MOSSI 2026
+                </span>
+
+                <h2>
+                    Workshop Information
+                </h2>
+
+                <div class="heading-line"></div>
+
+            </div>
+
+            <div class="details-grid">
+
+                <article class="detail-card">
+                    <span class="detail-icon">❄</span>
+                    <h3>Workshop Dates</h3>
+                    <p>12–13 November 2026</p>
+                </article>
+
+                <article class="detail-card">
+                    <span class="detail-icon">◎</span>
+                    <h3>Format</h3>
+                    <p>Online via Zoom</p>
+                </article>
+
+                <article class="detail-card">
+                    <span class="detail-icon">∂</span>
+                    <h3>Presentation</h3>
+                    <p>20 minutes plus 5 minutes for discussion</p>
+                </article>
+
+            </div>
+
+            <div class="about-layout">
+
+                <div class="about-text">
+
+                    <h3>About MOSSI</h3>
+
+                    <p>
+                        Sea ice and ice sheets are important components of the
+                        Earth’s climate system, influencing planetary albedo,
+                        sea level, ocean circulation and interactions between
+                        the atmosphere, ocean and polar environment. Their
+                        dynamics involve fluid flow, elasticity, fracture,
+                        thermodynamics, wave propagation and processes acting
+                        across widely different spatial and temporal scales.
+                        Mathematical models are therefore essential for
+                        understanding these systems and predicting cryospheric
+                        change.
+                    </p>
+
+                </div>
+
+                <div class="aim-box">
+
+                    <h3>Aim of the Workshop</h3>
+
+                    <p>
+                        MOSSI brings together mathematicians, geophysicists,
+                        engineers and computational scientists to present new
+                        research, discuss challenging modelling problems and
+                        encourage interdisciplinary collaboration in sea-ice
+                        and ice-sheet mathematics.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="bottom-layout">
+
+                <div class="organiser-panel">
+
+                    <h3>Workshop Organisers</h3>
+
+                    <div class="organiser-list">
+
+                        <div class="organiser">
+                            <strong>Dr Pawan Negi</strong> —
+                            Harbin Engineering University, China
+                        </div>
+
+                        <div class="organiser">
+                            <strong>Dr Susam Boral</strong> —
+                            Trinity College Dublin, Ireland
+                        </div>
+
+                        <div class="organiser">
+                            <strong>Professor Mike Meylan</strong> —
+                            University of Newcastle, Australia
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="previous-panel">
+
+                    <h3>Previous MOSSI Workshops</h3>
+
+                    <div class="year-links">
+
+                        <a class="year-link"
+                            href="https://sboral1212.github.io/MOSSI2024_link_page/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            MOSSI 2024
+                        </a>
+
+                        <a class="year-link"
+                            href="https://sboral1212.github.io/sboral1212_b.github.io/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            MOSSI 2023
+                        </a>
+
+                        <a class="year-link"
+                            href="https://austms.org.au/event/mossi2022/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            MOSSI 2022
+                        </a>
+
+                        <a class="year-link"
+                            href="https://amsi.org.au/events/event/sea-ice/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            MOSSI 2021
+                        </a>
+
+                        <a class="year-link"
+                            href="https://carmamaths.org/meetings/mossi/mossi_abstracts.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            MOSSI 2020
+                        </a>
+
+                    </div>
+
+                    <div class="contact">
+
+                        <strong>Contact:</strong><br>
+
+                        <a href="mailto:mossiworkshop@gmail.com">
+                            mossiworkshop@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            <strong>
+                International Workshop on Mathematics of Sea Ice and Ice Sheets
+            </strong>
+        </p>
+
+        <p>
+            MOSSI 2026 · 12–13 November 2026 · Online Workshop
+        </p>
+
+    </footer>
+
 </body>
 
 </html>
