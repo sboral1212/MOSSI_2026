@@ -266,20 +266,21 @@
         }
 
         .submission-layout {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .submission-box {
-            padding: 26px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.1);
-        }
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 100%;
+}
+       .submission-box {
+    width: 100%;
+    min-width: 0;
+    padding: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
+}
 
         .submission-box h3,
         .fields-box h3 {
@@ -552,7 +553,59 @@
         footer strong {
             color: var(--white);
         }
+.programme-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 18px 0 30px;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
+.programme-table th {
+    background: #075985;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.programme-table td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.programme-table th:nth-child(1),
+.programme-table td:nth-child(1) {
+    width: 16%;
+}
+
+.programme-table th:nth-child(2),
+.programme-table td:nth-child(2) {
+    width: 44%;
+}
+
+.programme-table th:nth-child(3),
+.programme-table td:nth-child(3) {
+    width: 20%;
+}
+
+.programme-table th:nth-child(4),
+.programme-table td:nth-child(4) {
+    width: 20%;
+}
+
+@media (max-width: 768px) {
+    .programme-table {
+        min-width: 700px;
+    }
+
+    .submission-box > div[style*="overflow-x"] {
+        overflow-x: auto;
+    }
+}
         /* =====================================================
            RESPONSIVE DESIGN
         ====================================================== */
@@ -1132,9 +1185,7 @@
 
     </div>
 
-</div>
-
-                <div class="fields-box">
+    <div class="fields-box">
 
                     <h3>Indicative Research Fields</h3>
 
@@ -1232,7 +1283,7 @@
                 <article class="detail-card">
                     <span class="detail-icon">◎</span>
                     <h3>Format</h3>
-                    <p>Online via Zoom </p>
+                    <p>Online via Zoom</p>
                 </article>
 
                 <article class="detail-card">
